@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RssFeedDTO: Identifiable {
+class FeedViewModel: Identifiable {
     var id: UUID
     var rssFeed: RssFeed
     

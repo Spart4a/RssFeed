@@ -19,10 +19,10 @@ class RssFeedsViewModel: ObservableObject {
 
     @Published var allFeeds = [RssFeed]()
     @Published var archivedFeeds = [RssFeed]()
-    @Published var feedItems = [RssFeedItem]()
+    @Published var feedItems = [FeedItem]()
 
-    @Published var currentFeed: RssFeedDTO? = nil
-    @Published var currentItem: RssFeedItemDTO? = nil
+    @Published var currentFeed: FeedViewModel? = nil
+    @Published var currentItem: FeedItemDataModel? = nil
 
     var activeFeeds: [RssFeed] {
         self.displayArchivedFeeds ? self.archivedFeeds : self.allFeeds

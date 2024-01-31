@@ -9,12 +9,12 @@ import Foundation
 import FeedKit
 
 protocol RSSItemConvertible {
-    func toRssFeedItem() -> RssFeedItem
+    func toRssFeedItem() -> FeedItem
 }
 
 extension RSSFeedItem: RSSItemConvertible {
-    func toRssFeedItem() -> RssFeedItem {
-        return RssFeedItem.create(
+    func toRssFeedItem() -> FeedItem {
+        return FeedItem.create(
             title: title ?? "",
             desc: description ?? "",
             urlString: link ?? "",
@@ -24,8 +24,8 @@ extension RSSFeedItem: RSSItemConvertible {
 }
 
 extension AtomFeedEntry: RSSItemConvertible {
-    func toRssFeedItem() -> RssFeedItem {
-        return RssFeedItem.create(
+    func toRssFeedItem() -> FeedItem {
+        return FeedItem.create(
             title: title ?? "",
             desc: "",
             urlString: links?.first?.attributes?.href ?? "",
@@ -35,8 +35,8 @@ extension AtomFeedEntry: RSSItemConvertible {
 }
 
 extension JSONFeedItem: RSSItemConvertible {
-    func toRssFeedItem() -> RssFeedItem {
-        return RssFeedItem.create(
+    func toRssFeedItem() -> FeedItem {
+        return FeedItem.create(
             title: title ?? "",
             urlString: url ?? "",
             imageString: image ?? "",

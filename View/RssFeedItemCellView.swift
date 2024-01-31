@@ -9,10 +9,10 @@ import SwiftUI
 
 struct FeedItemCell: View {
     @EnvironmentObject private var feedViewModel: RssFeedsViewModel
-    let item: RssFeedItem
+    let item: FeedItem
 
     var body: some View {
-        Button(action: { feedViewModel.currentItem = RssFeedItemDTO(rssFeedItem: item) }) {
+        Button(action: { feedViewModel.currentItem = FeedItemDataModel(feedItem: item) }) {
             cellContent
         }
         .listRowSeparator(.visible)
@@ -48,7 +48,7 @@ struct FeedItemCell: View {
                 .font(.headline)
                 .foregroundStyle(.primary)
             
-            Text(item.desc.removingHTMLTags.removingNewLines)
+            Text(item.summary.removingHTMLTags.removingNewLines)
                 .font(.subheadline)
                 .lineLimit(3)
                 .foregroundStyle(.secondary)

@@ -13,7 +13,7 @@ struct FeedCellView: View {
     let feed: RssFeed
 
     var body: some View {
-        Button(action: { feedViewModel.currentFeed = RssFeedDTO(rssFeed: feed) }) {
+        Button(action: { feedViewModel.currentFeed = FeedViewModel(rssFeed: feed) }) {
             cellContent
         }
         .listRowSeparator(.visible)

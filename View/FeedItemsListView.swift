@@ -40,11 +40,11 @@ struct FeedItemsListView: View {
         feedViewModel.currentItem = nil
     }
 
-    private func sheetContent(for item: RssFeedItemDTO) -> some View {
-        if UserPreferences.shared.useSafariForLinks, let url = URL(string: item.rssFeedItem.urlString) {
+    private func sheetContent(for item: FeedItemDataModel) -> some View {
+        if UserPreferences.shared.useSafariForLinks, let url = URL(string: item.feedItem.urlString) {
             return AnyView(SafariBrowserView(url: url))
         } else {
-            return AnyView(webView(urlString: item.rssFeedItem.urlString))
+            return AnyView(webView(urlString: item.feedItem.urlString))
         }
     }
 
