@@ -10,7 +10,7 @@ import AlertToast
 
 struct RSSFeedListView: View {
     @EnvironmentObject private var rssFeedViewModel: RssFeedsViewModel
-    @EnvironmentObject private var appSettings: AppEnvironment
+    @EnvironmentObject private var appSettings: UserPreferences
     
     @State private var isAddViewPresented: Bool = false
     @State private var isOptionsViewPresented: Bool = false

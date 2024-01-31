@@ -8,12 +8,12 @@
 import SwiftUI
 
 @main
-struct RssFeedApp: App {
+struct RSSFeedApp: App {
     var body: some Scene {
         WindowGroup {
-            MainRssFeedView()
+            RSSFeedMainView()
                 .onAppear {
-                    DBM.setup()
+                    RealmDatabaseManager.setup()
                 }
         }
     }

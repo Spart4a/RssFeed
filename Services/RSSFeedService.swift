@@ -1,5 +1,5 @@
 //
-//  RssApiService.swift
+//  RSSFeedService.swift
 //  RssFeed
 //
 //  Created by Ivan on 24.01.2024..
@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import FeedKit
 
-class ApiService {
-    static func fetchNewRSS(url: URL,
+class RSSFeedService {
+    static func fetchRSSFeed(url: URL,
                      completionHandler: @escaping ((Result<Feed, Error>) -> Void)) {
         
         let parser = FeedParser(URL: url)

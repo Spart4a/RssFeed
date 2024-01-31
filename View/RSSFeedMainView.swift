@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MainRssFeedView: View {
+struct RSSFeedMainView: View {
     @StateObject var rssFeedsViewModel: RssFeedsViewModel
-    @StateObject private var appSettings = AppEnvironment.shared
+    @StateObject private var appSettings = UserPreferences.shared
     
     init() {
         _rssFeedsViewModel = StateObject(wrappedValue: .init())
@@ -30,7 +30,7 @@ struct MainRssFeedView: View {
                     Label("Archived", systemImage: "square.and.arrow.down.fill")
                 }
         }
-        .preferredColorScheme(appSettings.useDarkMode ? .dark : .light)
+        .preferredColorScheme(appSettings.enableDarkMode ? .dark : .light)
         .environmentObject(rssFeedsViewModel)
         .environmentObject(appSettings)
         .tint(.blue)

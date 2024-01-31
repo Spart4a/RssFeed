@@ -1,5 +1,5 @@
 //
-//  RssRepository.swift
+//  FeedDataRepository.swift
 //  RssFeed
 //
 //  Created by Ivan on 24.01.2024..
@@ -10,21 +10,21 @@ import Combine
 import RealmSwift
 import FeedKit
 
-protocol RSSFeedDataManaging {
-    func monitorDatabaseChanges() -> AnyPublisher<Void, Never>
-    func retrieveStoredFeeds() -> AnyPublisher <[RssFeed], NetworkError>
-    func getFeed(from url: URL) -> AnyPublisher <Feed, NetworkError>
-    func makeOrRemoveFavorite(_ feed: RssFeed)
+protocol FeedDataManager {
+    func observeDatabaseChanges() -> AnyPublisher<Void, Never>
+    func fetchStoredFeeds() -> AnyPublisher <[RssFeed], NetworkError>
+    func fetchFeed(from url: URL) -> AnyPublisher <Feed, NetworkError>
+    func toggleFavoriteStatus(_ feed: RssFeed)
     func deleteFeed(_ feed: RssFeed)
-    func saveOrRemoveFeed(_ feed: RssFeed)
+    func toggleFeedArchiveStatus(_ feed: RssFeed)
     func removeDatabaseObserver()
 }
 
-class RealmFeedDataService: RSSFeedDataManaging {
+class RealmFeedsManager: FeedDataManager {
     private var realm: Realm?
     private var notificationToken: NotificationToken?
     
-    private let databaseChangesSubject = PassthroughSubject<Void, Never>()
+    private let databaseChangePublisher = PassthroughSubject<Void, Never>()
     
     init() {
         do {
@@ -40,8 +40,8 @@ class RealmFeedDataService: RSSFeedDataManaging {
     }
 }
 
-extension RealmFeedDataService {
-    func monitorDatabaseChanges() -> AnyPublisher<Void, Never> {
+extension RealmFeedsManager {
+    func observeDatabaseChanges() -> AnyPublisher<Void, Never> {
         guard let realm = self.realm else {
             return Empty<Void, Never>()
                 .eraseToAnyPublisher()
@@ -53,20 +53,20 @@ extension RealmFeedDataService {
             case .initial:
                 print("initial load")
             case .update:
-                self?.databaseChangesSubject.send()
+                self?.databaseChangePublisher.send()
             case .error(let error):
                 print("\(error)")
             }
         }
         
-        return databaseChangesSubject.eraseToAnyPublisher()
+        return databaseChangePublisher.eraseToAnyPublisher()
     }
     
     func removeDatabaseObserver() {
         notificationToken?.invalidate()
     }
     
-    func retrieveStoredFeeds() -> AnyPublisher<[RssFeed], NetworkError> {
+    func fetchStoredFeeds() -> AnyPublisher<[RssFeed], NetworkError> {
         guard let realm = realm else {
             return Fail(error: NetworkError.databaseError)
                 .eraseToAnyPublisher()
@@ -84,9 +84,9 @@ extension RealmFeedDataService {
             .eraseToAnyPublisher()
     }
     
-    func getFeed(from url: URL) -> AnyPublisher<Feed, NetworkError> {
+    func fetchFeed(from url: URL) -> AnyPublisher<Feed, NetworkError> {
         return Future<Feed, NetworkError> { promise in
-            ApiService.fetchNewRSS(
+            RSSFeedService.fetchRSSFeed(
                 url: url) { results in
                     switch results {
                     case .success(let feed):
@@ -128,7 +128,7 @@ extension RealmFeedDataService {
             .eraseToAnyPublisher()
     }
     
-    func makeOrRemoveFavorite(_ feed: RssFeed) {
+    func toggleFavoriteStatus(_ feed: RssFeed) {
         guard let realm = realm else {
             return
         }
@@ -141,7 +141,7 @@ extension RealmFeedDataService {
         })
     }
     
-    func saveOrRemoveFeed(_ feed: RssFeed) {
+    func toggleFeedArchiveStatus(_ feed: RssFeed) {
         guard let realm = realm else {
             return
         }

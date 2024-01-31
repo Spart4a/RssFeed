@@ -8,11 +8,11 @@
 import Foundation
 
 extension String {
-    var trimHTMLTag: String {
+    var removingHTMLTags: String {
         return replacingOccurrences(of:"<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
     
-    var trimWhiteAndSpace: String {
+    var removingNewLines: String {
         return replacingOccurrences(of: "\n", with: "")
     }
 }

@@ -41,7 +41,7 @@ struct FeedItemsListView: View {
     }
 
     private func sheetContent(for item: RssFeedItemDTO) -> some View {
-        if AppEnvironment.shared.useSafari, let url = URL(string: item.rssFeedItem.urlString) {
+        if UserPreferences.shared.useSafariForLinks, let url = URL(string: item.rssFeedItem.urlString) {
             return AnyView(SafariBrowserView(url: url))
         } else {
             return AnyView(webView(urlString: item.rssFeedItem.urlString))

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var appSettings: AppEnvironment
+    @EnvironmentObject private var appSettings: UserPreferences
 
     var body: some View {
         VStack(spacing: 15) {
@@ -16,16 +16,16 @@ struct SettingsView: View {
             darkModeToggle
         }
         .padding()
-        .preferredColorScheme(appSettings.useDarkMode ? .dark : .light)
+        .preferredColorScheme(appSettings.enableDarkMode ? .dark : .light)
     }
 
     private var safariToggle: some View {
-        Toggle("Open RSS Items in Safari", isOn: $appSettings.useSafari)
+        Toggle("Open RSS Items in Safari", isOn: $appSettings.useSafariForLinks)
             .bold()
     }
 
     private var darkModeToggle: some View {
-        Toggle("Enable Dark Mode", isOn: $appSettings.useDarkMode)
+        Toggle("Enable Dark Mode", isOn: $appSettings.enableDarkMode)
             .bold()
     }
 }

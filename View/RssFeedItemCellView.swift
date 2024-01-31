@@ -48,7 +48,7 @@ struct FeedItemCell: View {
                 .font(.headline)
                 .foregroundStyle(.primary)
             
-            Text(item.desc.trimHTMLTag.trimWhiteAndSpace)
+            Text(item.desc.removingHTMLTags.removingNewLines)
                 .font(.subheadline)
                 .lineLimit(3)
                 .foregroundStyle(.secondary)

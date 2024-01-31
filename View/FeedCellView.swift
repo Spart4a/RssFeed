@@ -74,7 +74,7 @@ struct FeedCellView: View {
     }
 
     private var descriptionText: some View {
-        Text(feed.desc.trimHTMLTag.trimWhiteAndSpace) 
+        Text(feed.desc.removingHTMLTags.removingNewLines) 
             .font(.subheadline)
             .lineLimit(3)
             .foregroundStyle(.secondary)

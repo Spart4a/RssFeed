@@ -1,5 +1,5 @@
 //
-//  RssFeedExtension.swift
+//  FeedItemExtension.swift
 //  RssFeed
 //
 //  Created by Ivan on 24.01.2024..
@@ -8,12 +8,12 @@
 import Foundation
 import FeedKit
 
-protocol RSSItemConvertable {
-    func asRSSItem() -> RssFeedItem
+protocol RSSItemConvertible {
+    func toRssFeedItem() -> RssFeedItem
 }
 
-extension RSSFeedItem: RSSItemConvertable {
-    func asRSSItem() -> RssFeedItem {
+extension RSSFeedItem: RSSItemConvertible {
+    func toRssFeedItem() -> RssFeedItem {
         return RssFeedItem.create(
             title: title ?? "",
             desc: description ?? "",
@@ -23,8 +23,8 @@ extension RSSFeedItem: RSSItemConvertable {
     }
 }
 
-extension AtomFeedEntry: RSSItemConvertable {
-    func asRSSItem() -> RssFeedItem {
+extension AtomFeedEntry: RSSItemConvertible {
+    func toRssFeedItem() -> RssFeedItem {
         return RssFeedItem.create(
             title: title ?? "",
             desc: "",
@@ -34,8 +34,8 @@ extension AtomFeedEntry: RSSItemConvertable {
     }
 }
 
-extension JSONFeedItem: RSSItemConvertable {
-    func asRSSItem() -> RssFeedItem {
+extension JSONFeedItem: RSSItemConvertible {
+    func toRssFeedItem() -> RssFeedItem {
         return RssFeedItem.create(
             title: title ?? "",
             urlString: url ?? "",

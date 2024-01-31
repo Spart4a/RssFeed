@@ -11,7 +11,7 @@ import SwiftUI
 import FeedKit
 
 class RssFeedsViewModel: ObservableObject {
-    private let dataService: RSSFeedDataManaging
+    private let dataService: FeedDataManager
     private var subscriptions = Set<AnyCancellable>()
 
     @Published var displayArchivedFeeds: Bool = false
@@ -36,7 +36,7 @@ class RssFeedsViewModel: ObservableObject {
         self.displayArchivedFeeds ? "You don't have any saved RSS feeds." : "There are no new RSS feeds available."
     }
 
-    init(repository: RSSFeedDataManaging = RealmFeedDataService(), notificationManager: NotificationManager = .init()) {
+    init(repository: FeedDataManager = RealmFeedsManager(), notificationManager: NotificationManager = .init()) {
         self.dataService = repository
         self.notificationManager = notificationManager
         observeDataUpdates()
@@ -44,7 +44,7 @@ class RssFeedsViewModel: ObservableObject {
     }
     
     private func observeDataUpdates() {
-        dataService.monitorDatabaseChanges()
+        dataService.observeDatabaseChanges()
             .sink { [weak self] _ in
                 self?.fetchArchivedFeeds()
             }
@@ -52,7 +52,7 @@ class RssFeedsViewModel: ObservableObject {
     }
 
     private func fetchArchivedFeeds() {
-        dataService.retrieveStoredFeeds()
+        dataService.fetchStoredFeeds()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -100,11 +100,11 @@ class RssFeedsViewModel: ObservableObject {
         }
 
         displaySuccessNotification(with: toastMessage)
-        dataService.saveOrRemoveFeed(feed)
+        dataService.toggleFeedArchiveStatus(feed)
     }
 
     func toggleFavoriteStatus(_ feed: RssFeed) {
-        dataService.makeOrRemoveFavorite(feed)
+        dataService.toggleFavoriteStatus(feed)
     }
 
     private func displaySuccessNotification(with message: String) {
@@ -138,15 +138,15 @@ class RssFeedsViewModel: ObservableObject {
         switch feed {
         case .atom(let atomFeed):
             for item in atomFeed.entries ?? [] {
-                feedItems.append(item.asRSSItem())
+                feedItems.append(item.toRssFeedItem())
             }
         case .json(let jsonFeed):
             for item in jsonFeed.items ?? [] {
-                feedItems.append(item.asRSSItem())
+                feedItems.append(item.toRssFeedItem())
             }
         case .rss(let rssFeed):
             for item in rssFeed.items ?? [] {
-                feedItems.append(item.asRSSItem())
+                feedItems.append(item.toRssFeedItem())
             }
         }
     }
@@ -157,7 +157,7 @@ class RssFeedsViewModel: ObservableObject {
         }
 
         notificationManager.showLoadingToast()
-        dataService.getFeed(from: url)
+        dataService.fetchFeed(from: url)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -186,7 +186,7 @@ class RssFeedsViewModel: ObservableObject {
 
         func updateFeedProperties(title: String?, desc: String?, imageUrl: String?) {
             rssFeed.title = title ?? ""
-            rssFeed.desc = desc?.trimWhiteAndSpace ?? ""
+            rssFeed.desc = desc?.removingNewLines ?? ""
             rssFeed.imageString = imageUrl ?? ""
         }
 
