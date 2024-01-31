@@ -74,11 +74,12 @@ struct FeedCellView: View {
     }
 
     private var descriptionText: some View {
-        Text(feed.description.trimHTMLTag.trimWhiteAndSpace)
+        Text(feed.desc.trimHTMLTag.trimWhiteAndSpace) 
             .font(.subheadline)
             .lineLimit(3)
             .foregroundStyle(.secondary)
     }
+
 
     private var deleteButton: some View {
         Button(role: .destructive) {

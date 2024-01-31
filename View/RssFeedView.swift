@@ -15,10 +15,6 @@ struct RSSFeedListView: View {
     @State private var isAddViewPresented: Bool = false
     @State private var isOptionsViewPresented: Bool = false
     
-    private let toastDuration = 3.0
-    private let errorToastDuration = 4.0
-    
- 
     var body: some View {
         NavigationView {
             VStack {
@@ -49,13 +45,13 @@ struct RSSFeedListView: View {
                 AddButtonView(isPressed: $isAddViewPresented)
                     .padding()
             }
-            .toast(isPresenting: $rssFeedViewModel.notificationManager.isShowingSuccessToast, duration: toastDuration) {
+            .toast(isPresenting: $rssFeedViewModel.notificationManager.isShowingSuccessToast, duration: 3) {
                 AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: rssFeedViewModel.notificationManager.successToastMessage)
             }
-            .toast(isPresenting: $rssFeedViewModel.notificationManager.isShowingLoadingToast, duration: toastDuration) {
+            .toast(isPresenting: $rssFeedViewModel.notificationManager.isShowingLoadingToast, duration: 3) {
                 AlertToast(type: .loading)
             }
-            .toast(isPresenting: $rssFeedViewModel.notificationManager.isShowingErrorToast, duration: errorToastDuration) {
+            .toast(isPresenting: $rssFeedViewModel.notificationManager.isShowingErrorToast, duration: 4) {
                 AlertToast(displayMode: .banner(.pop), type: .error(.red), title: rssFeedViewModel.notificationManager.errorToastMessage, style: .style(titleColor: .red,titleFont: .body, subTitleFont: .body))
             }
             .onAppear {
@@ -76,10 +72,10 @@ struct RSSFeedListView: View {
                 .environmentObject(appSettings)
         })
         .sheet(item: $rssFeedViewModel.currentFeed) { feed in
-                    FeedItemsListView(feed: feed.rssFeed)
-                        .environmentObject(rssFeedViewModel)
-                        .presentationDragIndicator(.visible)
-                }
+            FeedItemsListView(feed: feed.rssFeed)
+                .environmentObject(rssFeedViewModel)
+                .presentationDragIndicator(.visible)
+        }
     }
 }
 
@@ -89,4 +85,3 @@ struct AddFeedView_Previews: PreviewProvider {
             .environmentObject(RssFeedsViewModel())
     }
 }
-
