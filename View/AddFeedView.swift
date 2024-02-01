@@ -9,7 +9,7 @@ import SwiftUI
 import AlertToast
 
 struct AddFeedView: View {
-    @EnvironmentObject var feedViewModel: RssFeedsViewModel
+    @EnvironmentObject var feedViewModel: FeedsViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var urlString: String = ""
 

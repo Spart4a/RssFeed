@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C6415AE2B60A73F00C39A25 /* RssFeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6415AD2B60A73F00C39A25 /* RssFeedsViewModel.swift */; };
+		2C6415AE2B60A73F00C39A25 /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6415AD2B60A73F00C39A25 /* FeedsViewModel.swift */; };
 		2CA2FA382B6093DB0024257F /* RSSFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA2FA372B6093DB0024257F /* RSSFeedApp.swift */; };
 		2CA2FA3C2B6093DC0024257F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CA2FA3B2B6093DC0024257F /* Assets.xcassets */; };
 		2CA2FA3F2B6093DC0024257F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CA2FA3E2B6093DC0024257F /* Preview Assets.xcassets */; };
@@ -26,23 +26,23 @@
 		2CF38E552B60A3AA00A6523F /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E542B60A3AA00A6523F /* FeedViewModel.swift */; };
 		2CF38E572B60A3BB00A6523F /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E562B60A3BB00A6523F /* FeedItem.swift */; };
 		2CF38E592B60A3CD00A6523F /* FeedItemDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E582B60A3CD00A6523F /* FeedItemDataModel.swift */; };
-		2CF38E5C2B60A42800A6523F /* RSSFeedMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E5B2B60A42800A6523F /* RSSFeedMainView.swift */; };
-		2CF38E602B60A45700A6523F /* RssFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E5F2B60A45700A6523F /* RssFeedView.swift */; };
+		2CF38E5C2B60A42800A6523F /* MainFeedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E5B2B60A42800A6523F /* MainFeedsView.swift */; };
+		2CF38E602B60A45700A6523F /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E5F2B60A45700A6523F /* FeedView.swift */; };
 		2CF38E632B60A4C100A6523F /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 2CF38E622B60A4C100A6523F /* AlertToast */; };
 		2CF38E652B60A4F900A6523F /* AddFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E642B60A4F900A6523F /* AddFeedView.swift */; };
 		2CF38E672B60A51700A6523F /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E662B60A51700A6523F /* FeedCellView.swift */; };
 		2CF38E692B60A52500A6523F /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E682B60A52500A6523F /* EmptyStateView.swift */; };
 		2CF38E6B2B60A53500A6523F /* FeedItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E6A2B60A53500A6523F /* FeedItemsListView.swift */; };
-		2CF38E6D2B60A56A00A6523F /* RssFeedItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E6C2B60A56A00A6523F /* RssFeedItemCellView.swift */; };
+		2CF38E6D2B60A56A00A6523F /* FeedItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E6C2B60A56A00A6523F /* FeedItemCellView.swift */; };
 		2CF38E6F2B60A58C00A6523F /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E6E2B60A58C00A6523F /* AddButtonView.swift */; };
 		2CF38E712B60A59F00A6523F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E702B60A59F00A6523F /* SettingsView.swift */; };
 		2CF38E732B60A5AF00A6523F /* SafariBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E722B60A5AF00A6523F /* SafariBrowserView.swift */; };
-		2CF38E752B60A5C200A6523F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E742B60A5C200A6523F /* WebView.swift */; };
-		2CF38E772B60A5D100A6523F /* URLTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E762B60A5D100A6523F /* URLTextFieldStyle.swift */; };
+		2CF38E752B60A5C200A6523F /* WebContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E742B60A5C200A6523F /* WebContentView.swift */; };
+		2CF38E772B60A5D100A6523F /* TextFieldColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38E762B60A5D100A6523F /* TextFieldColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C6415AD2B60A73F00C39A25 /* RssFeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedsViewModel.swift; sourceTree = "<group>"; };
+		2C6415AD2B60A73F00C39A25 /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		2CA2FA342B6093DB0024257F /* RssFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA2FA372B6093DB0024257F /* RSSFeedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedApp.swift; sourceTree = "<group>"; };
 		2CA2FA3B2B6093DC0024257F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,18 +59,18 @@
 		2CF38E542B60A3AA00A6523F /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		2CF38E562B60A3BB00A6523F /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		2CF38E582B60A3CD00A6523F /* FeedItemDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemDataModel.swift; sourceTree = "<group>"; };
-		2CF38E5B2B60A42800A6523F /* RSSFeedMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedMainView.swift; sourceTree = "<group>"; };
-		2CF38E5F2B60A45700A6523F /* RssFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedView.swift; sourceTree = "<group>"; };
+		2CF38E5B2B60A42800A6523F /* MainFeedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedsView.swift; sourceTree = "<group>"; };
+		2CF38E5F2B60A45700A6523F /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2CF38E642B60A4F900A6523F /* AddFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedView.swift; sourceTree = "<group>"; };
 		2CF38E662B60A51700A6523F /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
 		2CF38E682B60A52500A6523F /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		2CF38E6A2B60A53500A6523F /* FeedItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsListView.swift; sourceTree = "<group>"; };
-		2CF38E6C2B60A56A00A6523F /* RssFeedItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedItemCellView.swift; sourceTree = "<group>"; };
+		2CF38E6C2B60A56A00A6523F /* FeedItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemCellView.swift; sourceTree = "<group>"; };
 		2CF38E6E2B60A58C00A6523F /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		2CF38E702B60A59F00A6523F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2CF38E722B60A5AF00A6523F /* SafariBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariBrowserView.swift; sourceTree = "<group>"; };
-		2CF38E742B60A5C200A6523F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		2CF38E762B60A5D100A6523F /* URLTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextFieldStyle.swift; sourceTree = "<group>"; };
+		2CF38E742B60A5C200A6523F /* WebContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentView.swift; sourceTree = "<group>"; };
+		2CF38E762B60A5D100A6523F /* TextFieldColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 				2CA2FA372B6093DB0024257F /* RSSFeedApp.swift */,
 				2CF38E402B60A1AD00A6523F /* Extension */,
 				2CF38E3B2B60A11B00A6523F /* Manager */,
-				2CA2FA452B6094690024257F /* DBM */,
+				2CA2FA452B6094690024257F /* RealmDBM */,
 				2CA2FA362B6093DB0024257F /* RssFeed */,
 				2CA2FA352B6093DB0024257F /* Products */,
 			);
@@ -131,12 +131,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2CA2FA452B6094690024257F /* DBM */ = {
+		2CA2FA452B6094690024257F /* RealmDBM */ = {
 			isa = PBXGroup;
 			children = (
 				2CA2FA482B6094920024257F /* RealmDatabaseManager.swift */,
 			);
-			path = DBM;
+			path = RealmDBM;
 			sourceTree = "<group>";
 		};
 		2CF38E3B2B60A11B00A6523F /* Manager */ = {
@@ -195,18 +195,18 @@
 		2CF38E5A2B60A41100A6523F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2CF38E5B2B60A42800A6523F /* RSSFeedMainView.swift */,
-				2CF38E5F2B60A45700A6523F /* RssFeedView.swift */,
+				2CF38E5B2B60A42800A6523F /* MainFeedsView.swift */,
+				2CF38E5F2B60A45700A6523F /* FeedView.swift */,
 				2CF38E642B60A4F900A6523F /* AddFeedView.swift */,
 				2CF38E662B60A51700A6523F /* FeedCellView.swift */,
 				2CF38E682B60A52500A6523F /* EmptyStateView.swift */,
 				2CF38E6A2B60A53500A6523F /* FeedItemsListView.swift */,
-				2CF38E6C2B60A56A00A6523F /* RssFeedItemCellView.swift */,
+				2CF38E6C2B60A56A00A6523F /* FeedItemCellView.swift */,
 				2CF38E6E2B60A58C00A6523F /* AddButtonView.swift */,
 				2CF38E702B60A59F00A6523F /* SettingsView.swift */,
 				2CF38E722B60A5AF00A6523F /* SafariBrowserView.swift */,
-				2CF38E742B60A5C200A6523F /* WebView.swift */,
-				2CF38E762B60A5D100A6523F /* URLTextFieldStyle.swift */,
+				2CF38E742B60A5C200A6523F /* WebContentView.swift */,
+				2CF38E762B60A5D100A6523F /* TextFieldColor.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 		2CF38E782B60A66E00A6523F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2C6415AD2B60A73F00C39A25 /* RssFeedsViewModel.swift */,
+				2C6415AD2B60A73F00C39A25 /* FeedsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				2CF38E3F2B60A18100A6523F /* UserPreferences.swift in Sources */,
 				2CF38E572B60A3BB00A6523F /* FeedItem.swift in Sources */,
 				2CF38E4A2B60A2D100A6523F /* NetworkError.swift in Sources */,
-				2CF38E602B60A45700A6523F /* RssFeedView.swift in Sources */,
+				2CF38E602B60A45700A6523F /* FeedView.swift in Sources */,
 				2CF38E732B60A5AF00A6523F /* SafariBrowserView.swift in Sources */,
 				2CF38E652B60A4F900A6523F /* AddFeedView.swift in Sources */,
 				2CF38E3D2B60A15700A6523F /* NotificationManager.swift in Sources */,
@@ -311,17 +311,17 @@
 				2CF38E672B60A51700A6523F /* FeedCellView.swift in Sources */,
 				2CF38E442B60A20800A6523F /* FeedItemExtension.swift in Sources */,
 				2CF38E712B60A59F00A6523F /* SettingsView.swift in Sources */,
-				2CF38E752B60A5C200A6523F /* WebView.swift in Sources */,
+				2CF38E752B60A5C200A6523F /* WebContentView.swift in Sources */,
 				2CF38E4D2B60A31600A6523F /* RSSFeedService.swift in Sources */,
-				2C6415AE2B60A73F00C39A25 /* RssFeedsViewModel.swift in Sources */,
+				2C6415AE2B60A73F00C39A25 /* FeedsViewModel.swift in Sources */,
 				2CF38E422B60A1DD00A6523F /* StringExtension.swift in Sources */,
 				2CF38E502B60A34C00A6523F /* FeedDataRepository.swift in Sources */,
 				2CF38E592B60A3CD00A6523F /* FeedItemDataModel.swift in Sources */,
 				2CA2FA492B6094920024257F /* RealmDatabaseManager.swift in Sources */,
-				2CF38E772B60A5D100A6523F /* URLTextFieldStyle.swift in Sources */,
-				2CF38E6D2B60A56A00A6523F /* RssFeedItemCellView.swift in Sources */,
+				2CF38E772B60A5D100A6523F /* TextFieldColor.swift in Sources */,
+				2CF38E6D2B60A56A00A6523F /* FeedItemCellView.swift in Sources */,
 				2CF38E552B60A3AA00A6523F /* FeedViewModel.swift in Sources */,
-				2CF38E5C2B60A42800A6523F /* RSSFeedMainView.swift in Sources */,
+				2CF38E5C2B60A42800A6523F /* MainFeedsView.swift in Sources */,
 				2CF38E6F2B60A58C00A6523F /* AddButtonView.swift in Sources */,
 				2CF38E692B60A52500A6523F /* EmptyStateView.swift in Sources */,
 				2CF38E6B2B60A53500A6523F /* FeedItemsListView.swift in Sources */,

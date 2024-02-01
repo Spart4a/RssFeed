@@ -1,5 +1,5 @@
 //
-//  RssFeedItemCellView.swift
+//  FeedItemCellView.swift
 //  RssFeed
 //
 //  Created by Ivan on 24.01.2024..
@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct FeedItemCell: View {
-    @EnvironmentObject private var feedViewModel: RssFeedsViewModel
+    @EnvironmentObject private var feedViewModel: FeedsViewModel
     let item: FeedItem
 
     var body: some View {
         Button(action: { feedViewModel.currentItem = FeedItemDataModel(feedItem: item) }) {
-            cellContent
+            contentLayout
         }
         .listRowSeparator(.visible)
         .listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
     }
 
-    private var cellContent: some View {
+    private var contentLayout: some View {
         HStack(spacing: 10) {
-            feedImage
-            feedDetails
+            itemImage
+            itemDetails
         }
         .padding(10)
     }
 
-    private var feedImage: some View {
+    private var itemImage: some View {
         Group {
             if let url = URL(string: item.imageString) {
                 AsyncImage(url: url) { image in
@@ -42,7 +42,7 @@ struct FeedItemCell: View {
         }
     }
 
-    private var feedDetails: some View {
+    private var itemDetails: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(item.title)
                 .font(.headline)

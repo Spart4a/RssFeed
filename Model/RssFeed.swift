@@ -19,14 +19,14 @@ public final class RssFeed: Object {
     @Persisted var isFavorite: Bool
     @Persisted var isDeleted: Bool
     @Persisted var imageString: String
-    @Persisted var createdTime: Date
+    @Persisted var creationDate: Date
     
-    static func create(title: String = "", desc: String = "", urlString: String = "", imageString: String = "", createdTime: Date = Date()) -> RssFeed {
+    static func create(title: String = "", desc: String = "", urlString: String = "", imageString: String = "", creationDate: Date = Date()) -> RssFeed {
        let item = RssFeed()
        item.title = title
        item.desc = desc
        item.urlString = urlString
-       item.createdTime = createdTime
+       item.creationDate = creationDate
        item.imageString = imageString
        return item
      }

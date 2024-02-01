@@ -1,5 +1,5 @@
 //
-//  RssFeedsViewModel.swift
+//  FeedsViewModel.swift
 //  RssFeed
 //
 //  Created by Ivan on 24.01.2024..
@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 import FeedKit
 
-class RssFeedsViewModel: ObservableObject {
+class FeedsViewModel: ObservableObject {
     private let dataService: FeedDataManager
     private var subscriptions = Set<AnyCancellable>()
 
@@ -33,7 +33,7 @@ class RssFeedsViewModel: ObservableObject {
     }
 
     var emptyStateMessage: String {
-        self.displayArchivedFeeds ? "You don't have any saved RSS feeds." : "There are no new RSS feeds available."
+        self.displayArchivedFeeds ? "You don't have any saved RSS feeds" : "There are no new RSS feeds available"
     }
 
     init(repository: FeedDataManager = RealmFeedsManager(), notificationManager: NotificationManager = .init()) {
@@ -200,7 +200,7 @@ class RssFeedsViewModel: ObservableObject {
             updateFeedProperties(title: _rssFeed.title, desc: _rssFeed.description, imageUrl: _rssFeed.image?.url)
         }
 
-        let responseMessage = allFeeds.contains(where: {$0.urlString == rssFeed.urlString}) ? "Existing RSS feed updated with new information." : "RSS feed added"
+        let responseMessage = allFeeds.contains(where: {$0.urlString == rssFeed.urlString}) ? "Existing RSS feed updated with new information" : "RSS feed added"
 
         withAnimation(.spring()) {
             allFeeds.removeAll(where: {$0.urlString == rssFeed.urlString})

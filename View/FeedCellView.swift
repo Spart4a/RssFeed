@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedCellView: View {
-    @EnvironmentObject private var feedViewModel: RssFeedsViewModel
+    @EnvironmentObject private var feedViewModel: FeedsViewModel
     
     let feed: RssFeed
 

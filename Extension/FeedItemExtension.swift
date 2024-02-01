@@ -18,7 +18,7 @@ extension RSSFeedItem: RSSItemConvertible {
             title: title ?? "",
             desc: description ?? "",
             urlString: link ?? "",
-            createdTime: pubDate ?? Date()
+            creationDate: pubDate ?? Date()
         )
     }
 }
@@ -29,7 +29,7 @@ extension AtomFeedEntry: RSSItemConvertible {
             title: title ?? "",
             desc: "",
             urlString: links?.first?.attributes?.href ?? "",
-            createdTime: (published ?? updated) ?? Date()
+            creationDate: (published ?? updated) ?? Date()
         )
     }
 }
@@ -40,7 +40,7 @@ extension JSONFeedItem: RSSItemConvertible {
             title: title ?? "",
             urlString: url ?? "",
             imageString: image ?? "",
-            createdTime: datePublished ?? Date()
+            creationDate: datePublished ?? Date()
         )
     }
 }

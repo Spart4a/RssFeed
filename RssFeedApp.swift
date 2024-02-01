@@ -9,12 +9,16 @@ import SwiftUI
 
 @main
 struct RSSFeedApp: App {
+    @StateObject private var userPreferences = UserPreferences.shared
+
     var body: some Scene {
-        WindowGroup {
-            RSSFeedMainView()
-                .onAppear {
-                    RealmDatabaseManager.setup()
-                }
-        }
+           WindowGroup {
+               MainFeedsView()
+                   .environmentObject(userPreferences)
+                   .preferredColorScheme(userPreferences.enableDarkMode ? .dark : .light)
+                   .onAppear {
+                       RealmDatabaseManager.setup()
+                   }
+           }
     }
 }

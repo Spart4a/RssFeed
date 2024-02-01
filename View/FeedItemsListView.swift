@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedItemsListView: View {
-    @EnvironmentObject private var feedViewModel: RssFeedsViewModel
+    @EnvironmentObject private var feedViewModel: FeedsViewModel
     let feed: RssFeed
 
     var body: some View {
@@ -51,7 +51,7 @@ struct FeedItemsListView: View {
 
     private func webView(urlString: String) -> some View {
         NavigationView {
-            WebView(urlString: urlString)
+            WebContentView(urlString: urlString)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: { feedViewModel.currentItem = nil }) {

@@ -1,5 +1,5 @@
 //
-//  WebView.swift
+//  WebContentView.swift
 //  RssFeed
 //
 //  Created by Ivan on 24.01.2024..
@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-struct WebView: UIViewRepresentable {
+struct WebContentView: UIViewRepresentable {
     let urlString: String
 
     // Create the WKWebView instance
@@ -38,9 +38,9 @@ struct WebView: UIViewRepresentable {
 
 
     class Coordinator: NSObject, WKNavigationDelegate {
-        var parent: WebView
+        var parent: WebContentView
 
-        init(_ parent: WebView) {
+        init(_ parent: WebContentView) {
             self.parent = parent
         }
     }
